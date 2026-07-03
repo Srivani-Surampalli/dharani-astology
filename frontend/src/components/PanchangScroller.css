@@ -1,0 +1,62 @@
+.panchang-bar {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(
+      90deg,
+      #7c2d12,
+      #d97706,
+      #f59e0b
+    );
+    color: white;
+    height: 58px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .live-badge {
+    flex-shrink: 0;
+    padding: 0 20px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    background: rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+  
+  .marquee-container {
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .marquee-content {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 50px;
+    padding-left: 100%;
+    animation: marquee 40s linear infinite;
+  }
+  
+  .marquee-content span {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .marquee-content strong {
+    color: #fff7cc;
+  }
+  
+  .panchang-bar:hover .marquee-content {
+    animation-play-state: paused;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+  
+    100% {
+      transform: translateX(-100%);
+    }
+  }
