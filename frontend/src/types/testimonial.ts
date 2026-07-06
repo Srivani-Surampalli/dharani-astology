@@ -12,6 +12,6 @@ export interface TestimonialRequest {
     location?: string;
     rating: number;
     feedback: string;
-    createdAt: string;
+    createdAt?: string;
     service: string;
   }
