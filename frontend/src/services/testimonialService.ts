@@ -1,32 +1,26 @@
-import axios from "axios";
+import api from "./api";
 
 import type {
-    Testimonial,
-    TestimonialRequest,
+  Testimonial,
+  TestimonialRequest,
 } from "../types/testimonial";
 
-const API_URL =
-  "http://localhost:5001/api/testimonial";
+export const createFeedback = async (
+  data: TestimonialRequest
+) => {
+  const response = await api.post(
+    "/testimonial",
+    data
+  );
 
-export const createFeedback =
-  async (
-    data: TestimonialRequest
-  ) => {
-    const response =
-      await axios.post(
-        API_URL,
-        data
-      );
-    return response.data;
-  };
+  return response.data;
+};
 
-export const getTestimonials =
-  async (): Promise<{
-    success: boolean;
-    testimonials: Testimonial[];
-  }> => {
-    const response =
-      await axios.get(API_URL);
+export const getTestimonials = async (): Promise<{
+  success: boolean;
+  testimonials: Testimonial[];
+}> => {
+  const response = await api.get("/testimonial");
 
-    return response.data;
-  };
+  return response.data;
+};

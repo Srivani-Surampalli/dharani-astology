@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "./api";
 
 export interface AppointmentRequest {
   fullName: string;
@@ -10,14 +10,11 @@ export interface AppointmentRequest {
   message: string;
 }
 
-const API_URL =
-  "http://localhost:5001/api/appointments";
-
 export const createAppointment = async (
-  data
+  data: AppointmentRequest
 ) => {
-  const response = await axios.post(
-    API_URL,
+  const response = await api.post(
+    "/appointments",
     data
   );
 
